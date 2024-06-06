@@ -1,0 +1,383 @@
+:root {
+  --clr-neutral-900: #000;
+  --clr-neutral-100: #fff;
+}
+
+/* RESET CSS */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+}
+a {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
+
+html {
+  font-family: Uber Move, Uber Move Text, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+}
+
+::selection {
+  background: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+}
+
+h2,
+h3,
+h4 {
+  color: #333;
+}
+
+/*  UTILITY CLASSES */
+
+.bg-light {
+  background: var(--clr-neutral-100);
+  color: var(--clr-neutral-900);
+}
+.bg-dark {
+  background: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+}
+
+.container {
+  margin-inline: auto;
+  width: min(90%, 70.5rem);
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 40em) {
+  .split {
+    flex-direction: row;
+    gap: 2em;
+  }
+  .split > * {
+    flex-basis: 100%;
+  }
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+  display: inline-block;
+  background: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+  border-radius: 10px;
+  font-weight: 500;
+  line-height: 1;
+  transition: opacity 300ms ease;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+/* HEADER */
+
+header {
+  padding-block: 1.5rem;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav a {
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 30px;
+  transition: all 300ms ease;
+}
+header nav a:hover {
+  border-radius: 30px;
+  background: #333;
+}
+
+.nav-links,
+header nav div:first-of-type {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.nav__cta {
+  background: var(--clr-neutral-100);
+  color: var(--clr-neutral-900);
+  border-radius: 30px;
+  padding: 0.75rem 1rem;
+}
+.nav__cta:hover {
+  background: var(--clr-neutral-100);
+}
+
+.hamburger {
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger-bar {
+  display: block;
+  margin-top: 5px;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 50rem) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-links {
+    position: fixed;
+    left: 0;
+    top: -100%;
+    gap: 0;
+    flex-direction: column;
+    background: var(--clr-neutral-900);
+    width: 100vw;
+    text-align: center;
+    transition: 0.3s ease;
+  }
+  .nav-links.active {
+    top: 70px;
+  }
+  .nav-links.active:first-child {
+    top: 220px;
+  }
+
+  header nav ul li {
+    margin: 1rem 0;
+  }
+}
+
+/* MAIN CTA */
+
+section#main__cta {
+  padding-block: 4rem;
+
+  background-image: url("https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_630,h_354/v1653688498/assets/2c/3833ca-a2eb-4da4-9879-51193ea88f87/original/DotCom_Update_Earner_bg_med2x.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.main__cta__rectangle {
+  display: flex;
+  flex-direction: column;
+}
+.main__cta__options {
+  padding: 3rem;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}
+.main__cta__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+.main__cta__text {
+  padding: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.main__cta__text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sous-titre {
+  opacity: 0.8;
+}
+.text-cta {
+  opacity: 0.8;
+}
+.text-cta::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  top: 5px;
+  left: 0;
+  position: relative;
+}
+
+/* BUSINESS HEADER */
+
+section#business-header {
+  background-image: url("https://www.uber-assets.com/image/upload/v1613106985/assets/0e/47aa71-35cb-459a-a975-78c61ea300e2/original/HP-U4B-NYC-bkg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  padding-block: 4rem;
+}
+.business-header__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.business-header__text h3 {
+  font-size: 2.5rem;
+}
+.business-header__text p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+
+/* engagements SECTION */
+
+section#engagements__section {
+  padding-block: 4rem;
+}
+
+#engagements__section h3 {
+  padding-bottom: 3rem;
+  font-size: 2.5rem;
+}
+#engagements__section h4 {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.engagements__section__flex {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* INFOS SECTION */
+
+section#infos__section {
+  padding-block: 4rem;
+}
+.titre {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.infos__section__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.infos__section__card .sous-titre {
+  padding-bottom: 1rem;
+}
+
+/* APPLICATIONS SECTION */
+
+section#applications__section {
+  padding-block: 4rem;
+  overflow: hidden;
+
+  background: #f1f1f1;
+  color: var(--clr-neutral-900);
+}
+section#applications__section h3 {
+  padding-bottom: 3rem;
+  font-size: 2.5rem;
+}
+.app__card {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  background: var(--clr-neutral-100);
+  border: 1px solid hsla(0, 0%, 0%, 0.12);
+}
+.app__card span {
+  padding: 2.5rem 1.5rem;
+  font-size: 3rem;
+  font-weight: 600;
+  background: var(--clr-neutral-900);
+  color: var(--clr-neutral-100);
+}
+.app__titre {
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* FOOTER */
+
+footer {
+  padding-block: 1rem;
+}
+
+footer nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 50rem) {
+  .infos__section__card {
+    margin-block: 1rem;
+  }
+  .main__cta__options {
+    gap: 2rem;
+  }
+
+  .app__titre {
+    font-size: 1.2rem;
+  }
+  .app__card span {
+    padding: 1.5rem 0.75rem;
+    font-size: 2rem;
+  }
+  .app__card {
+    margin-block: 1rem;
+  }
+  .engagements__section__flex {
+    margin-block: 1rem;
+  }
+  section#infos__section {
+    padding-top: 0;
+  }
+  footer nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
